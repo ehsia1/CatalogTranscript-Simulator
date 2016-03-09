@@ -10,7 +10,7 @@ CFLAGS = $(CONSERVATIVE_FLAGS) $(DEBUGGING_FLAGS)
 
 # Compiles catalog.c into an object file
 catalog.o: catalog.c hw3.h
-	$(CC) $(CFLAGS) -c hw3.h
+	$(CC) $(CFLAGS) -c catalog.c
 
 #Compiles transcript.c into object file
 transcript.o: transcript.c hw3.h
