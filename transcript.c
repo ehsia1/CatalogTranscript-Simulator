@@ -144,19 +144,34 @@ struct node *reorderList(struct node *cur)
                         for (int i = 0; i < 4; i++) {
                                 yearChar[i] = temp[i];
                         }
-                        int yearNext = atoi(yearChar);
-//                        char semesterNext[2] = {'\0'};
-  //                      semesterNext[0] = temp[5];
+                        float yearNext = atof(yearChar);
+                        char semesterNext[2] = {'\0'};
+                        semesterNext[0] = temp[5];
+			float semNext;
+			float semNow;
+			if (semesterNext[0] == 'F') {
+				semNext = 1;
+			} else if (semesterNext[0] == 'S') {
+				semNext = 0;
+			}
 
                         strcpy(temp, first->term);
                         for (int i = 0; i < 4; i++) {
                                 yearChar[i] = temp[i];
                         }
-                        int yearNow = atoi(yearChar);
-//                        char semesterNow[2] = {'\0'};
-  //                      semesterNow[0] = temp[5];
+                        float yearNow = atof(yearChar);
+                        char semesterNow[2] = {'\0'};
+                        semesterNow[0] = temp[5];
+			if (semesterNow[0] == 'F') {
+				semNow = .1;
+			} else if (semesterNow[0] == 'S') {
+				semNow = .0;
+			}
 
-                        if (yearNow > yearNext) {
+			float termNow = yearNow + semNow;
+			float termNext = yearNext + semNext;
+
+                        if (termNow > termNext) {
                                 first = temp2;
                                 prev = temp1;
                         }
