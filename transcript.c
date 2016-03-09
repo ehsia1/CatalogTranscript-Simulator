@@ -131,15 +131,15 @@ struct node *remove_node(char user[], char user2[], struct node *cur)
 
 struct node *reorderList(struct node *cur)
 {
-        struct node *temp1, *temp2, *newHead, *prev, *first;
+        struct node *currentPos, *after, *newHead, *prev, *first;
         newHead = NULL;
         while (cur != NULL) {
                 prev = NULL;
-                first = temp1 = cur;
-                temp2 = cur->next;
-                while (temp2 != NULL) { //compare two nodes at a time, taking the first node of cur and comparing with all others
+                first = currentPos = cur;
+                after = cur->next;
+                while (after != NULL) { //compare two nodes at a time, taking the first node of cur and comparing with all others
                         char temp[7] = {'\0'};
-                        strcpy(temp, temp2->term);
+                        strcpy(temp, after->term);
                         char yearChar[5] = {'0'};
                         for (int i = 0; i < 4; i++) {
                                 yearChar[i] = temp[i];
@@ -150,9 +150,9 @@ struct node *reorderList(struct node *cur)
 			float semNext;
 			float semNow;
 			if (semesterNext[0] == 'F') {
-				semNext = 1;
+				semNext = .1;
 			} else if (semesterNext[0] == 'S') {
-				semNext = 0;
+				semNext = .0;
 			}
 
                         strcpy(temp, first->term);
@@ -172,11 +172,11 @@ struct node *reorderList(struct node *cur)
 			float termNext = yearNext + semNext;
 
                         if (termNow > termNext) {
-                                first = temp2;
-                                prev = temp1;
+                                first = after;
+                                prev = currentPos;
                         }
-                        temp1 = temp2;
-                        temp2 = temp2->next;
+                        currentPos = after;
+                        after = after->next;
                 }
 
                 if (prev == NULL) { //allows the loop to go through again
@@ -188,11 +188,11 @@ struct node *reorderList(struct node *cur)
                 if (newHead == NULL) {
                         newHead = first;
                 } else { //finishes the sorting by pushing the nodes down the line in newHead
-                        temp1 = newHead;
-                        while (temp1->next != NULL) {
-                                temp1 = temp1->next;
+                        currentPos = newHead;
+                        while (currentPos->next != NULL) {
+                                currentPos = currentPos->next;
                         }
-                        temp1->next = first;
+                        currentPos->next = first;
                 }
         }
         return newHead;
