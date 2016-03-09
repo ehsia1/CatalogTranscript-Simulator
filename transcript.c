@@ -111,8 +111,9 @@ struct node *remove_node(char user[], char user2[], struct node *cur)
                 if (strcmp(cur->student.division, div) == 0 && cur->student.courseDep == dep && cur->student.courseNum == num && strcmp(cur->term, semester) == 0) {
                         previous->next = cur->next;
                         count++;
-                        free(cur);
+			free(cur);
                         puts("removed");
+			break;
                 }
                 if (a == 0) {
                         cur = cur->next;

@@ -110,6 +110,7 @@ int main(int argc, char* argv[])
 					user2[j] = toupper(user2[j]);
 				}
 				head = new_node(user, user2, course, lines, head); //need to send in a pointer to head and add things in order
+				head = reorderList(head);
 				break;
 			case 'D': //remove from transcript
 				puts("Please enter the course identifier (xx.ddd.nnn): ");
@@ -125,7 +126,6 @@ int main(int argc, char* argv[])
 				head = remove_node(user, user2, head);
 				break;
 			case 'I': //print transcript
-				head = reorderList(head);
 				printTranscript(head);
 				break;
 			case 'O': //print course from transcript
@@ -134,7 +134,6 @@ int main(int argc, char* argv[])
 				for (int i = 0; i < 100; i++) {
 					user[i] = toupper(user[i]);
 				}
-				head = reorderList(head);
 				transCourse(user, head);
 				break;
 			case 'G': //calculate gpa
