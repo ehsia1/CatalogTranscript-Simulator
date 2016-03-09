@@ -29,7 +29,7 @@ void specCourse(struct courseID *course, int lines, char user[])
         int count = 0;
         for (int i = 0; i < lines; i++) {
                 if (strcmp(course[i].division, div) == 0 && course[i].courseDep == dep && course[i].courseNum == num) {
-                        printf("%.1f %s", course[i].credit, course[i].title);
+                        printf("%.1f %s\n", course[i].credit, course[i].title);
                         count++;
                 }
         }

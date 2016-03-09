@@ -1,10 +1,13 @@
+/* Evan Hsia, ehsia1, Homework 3 transcript functions */
+
+
 #include "hw3.h"
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <stdio.h>
 
-struct node *new_node(char id[], char term[], struct courseID *course, int lines, struct node *cur) //fix to put them in order (previous pointer, temp pointer, relink)
+struct node *new_node(char id[], char term[], struct courseID *course, int lines, struct node *cur)
 {
         struct node *transcript = malloc(sizeof(struct node));
 	struct node *temp;
