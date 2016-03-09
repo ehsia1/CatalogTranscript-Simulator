@@ -61,6 +61,7 @@ void newTitle(struct courseID *course, int lines, char user[], char user2[], str
                 if (strcmp(course[i].division, div) == 0 && course[i].courseDep == dep && course[i].courseNum == num) {
                         count++;
                         strcpy(course[i].title, user2);
+
 			while (cur != NULL) {
 				if (strcmp(cur->student.division, div) == 0 && cur->student.courseDep == dep && cur->student.courseNum == num) {
 					strcpy(cur->student.title, user2);
@@ -95,7 +96,7 @@ void newCredit(struct courseID *course, int lines, char user[], char user2[], st
                 if (strcmp(course[i].division, div) == 0 && course[i].courseDep == dep && course[i].courseNum == num) {
                         count++;
                         course[i].credit = cred;
-			while (cur->next != NULL) {
+			while (cur != NULL) {
                                 if (strcmp(cur->student.division, div) == 0 && cur->student.courseDep == dep && cur->student.courseNum == num) {
 					cur->student.credit = cred;
                                 }
