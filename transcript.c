@@ -213,7 +213,7 @@ void printTranscript(struct node *head) //need to reorder still
         }
         if (count == 0) {
                 puts("transcript empty");
-        }
+	}
 }
 
 void transCourse(char user[], struct node *cur)
@@ -241,7 +241,7 @@ void transCourse(char user[], struct node *cur)
         }
         if (count == 0) {
                 puts("absent");
-        }
+	}
 }
 
 void calcGPA(struct node *cur)

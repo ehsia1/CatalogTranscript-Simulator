@@ -16,10 +16,10 @@ struct node {
         struct node *next;
 };
 //catalog functions
-void printCatalog(struct courseID *course, int lines);
-void specCourse(struct courseID *course, int lines, char user[]);
-void newTitle(struct courseID *course, int lines, char user[], char user2[], struct node *head);
-void newCredit(struct courseID *course, int lines, char user[], char user2[], struct node *head);
+int printCatalog(struct courseID *course, int lines);
+int specCourse(struct courseID *course, int lines, char user[]);
+int newTitle(struct courseID *course, int lines, char user[], char user2[], struct node *head);
+int newCredit(struct courseID *course, int lines, char user[], char user2[], struct node *head);
 
 //transcript functions
 struct node *new_node(char id[], char term[], struct courseID *course, int lines, struct node *cur);
