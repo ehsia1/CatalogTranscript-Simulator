@@ -1,18 +1,25 @@
+/* Evan Hsia, ehsia1, catalog functions homework 3 */
+
+
 #include "hw3.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
 
-void printCatalog(struct courseID *course, int lines)
+int printCatalog(struct courseID *course, int lines)
 {
         int i;
+	int count = 0;
         for (i = 0; i < lines; i++) {
                 printf("%s.%d.%d %.1f %s\n", course[i].division, course[i].courseDep, course[i].courseNum, course[i].credit, course[i].title);
+		count++;
         }
+
+	return 1;
 }
 
-void specCourse(struct courseID *course, int lines, char user[])
+int specCourse(struct courseID *course, int lines, char user[])
 {
         char div[3] = {'\0'};
         char de[4] = {'\0'};
@@ -35,10 +42,13 @@ void specCourse(struct courseID *course, int lines, char user[])
         }
         if (count == 0) {
                 puts("absent");
-        }
+		return 0;
+        } else {
+		return 1;
+	}
 }
 
-void newTitle(struct courseID *course, int lines, char user[], char user2[], struct node *cur)
+int newTitle(struct courseID *course, int lines, char user[], char user2[], struct node *cur)
 {
         char div[3] = {'\0'};
         char de[4] = {'\0'};
@@ -73,10 +83,13 @@ void newTitle(struct courseID *course, int lines, char user[], char user2[], str
         }
         if (count == 0) {
                 puts("absent");
-        }
+		return 0;
+        } else {
+		return 1;
+	}
 }
 
-void newCredit(struct courseID *course, int lines, char user[], char user2[], struct node *cur)
+int newCredit(struct courseID *course, int lines, char user[], char user2[], struct node *cur)
 {
         float cred = atof(user2);
         char div[3] = {'\0'};
@@ -107,5 +120,8 @@ void newCredit(struct courseID *course, int lines, char user[], char user2[], st
         }
         if (count == 0) {
                 puts("absent");
-        }
+		return 0;
+        } else {
+		return 1;
+	}
 }
